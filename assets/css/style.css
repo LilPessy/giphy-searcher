@@ -93,12 +93,84 @@ body{
 .iconContainer{
     width: 100%;
     position: absolute;
-    bottom: 30px;
     z-index: 100;
+    bottom: 10px;
+    display: flex;
 }
 
 .iconContainer img{
     width: 30px;
     height: 30px;
     margin-left: 10px;
+}
+
+.copyContainer{
+    position: relative;
+}
+
+.modal{
+    background-color: white;
+    padding: 10px;
+    border-radius: 7px;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.textContainer{
+    z-index: 100;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.textContainer *{
+    margin-bottom: 5px;
+}
+
+.textContainer h2{
+    font-size: 20px;
+}
+
+.textContainer h3{
+    font-size: 16px;
+}
+
+.textContainer h4{
+    font-size: 12px;
+}
+
+.fadeIn{
+    animation: fadeIn 0.5s;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
