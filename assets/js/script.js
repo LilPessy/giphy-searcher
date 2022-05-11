@@ -23,12 +23,20 @@ btn.addEventListener("click", function(e){
 
                     let textContainer = document.createElement("div");
                     textContainer.classList.add("textContainer");
-                    let title = document.createElement("h2");
-                    title.appendChild(document.createTextNode(data.data[i].title));
-                    textContainer.appendChild(title);
+                    if(data.data[i].title.length>1){
+                        let title = document.createElement("h2");
+                        let text = data.data[i].title;
+                        if(text.includes(" by ")){
+                            text = text.slice(0, text.indexOf(" by "));
+                        }
+                        title.appendChild(document.createTextNode(text));
+                        textContainer.appendChild(title);
+                    }
                     let user = document.createElement("h3");
-                    user.appendChild(document.createTextNode("uploaded by" + data.data[i].username));
-                    textContainer.appendChild(user);
+                    if(data.data[i].username.length>0){
+                        user.appendChild(document.createTextNode("uploaded by " + data.data[i].username));
+                        textContainer.appendChild(user);
+                    }
                     let date = document.createElement("h4");
                     date.appendChild(document.createTextNode("on " + data.data[i].import_datetime));
                     textContainer.appendChild(date);
@@ -59,15 +67,14 @@ btn.addEventListener("click", function(e){
                         modal.classList.add("fadeIn");
                         setTimeout(function () {
                             modal.classList.add("fadeOut");
-                            setTimeout(function () {
-                                modal.classList.add("hidden");
-                                modal.classList.remove("fadeIn");
-                                modal.classList.remove("fadeOut");
-                            }, 2000);
                         }, 2000);
-                        
-                        
+                        setTimeout(function () {
+                            modal.classList.add("hidden");
+                            modal.classList.remove("fadeIn");
+                            modal.classList.remove("fadeOut");
+                        }, 2000);
                     });
+                    
                     link.src = "./assets/img/link.png";
                     copyContainer.appendChild(link);
 
